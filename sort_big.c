@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_big.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ayaarab <ayaarab@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ayoub <ayoub@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/25 13:11:07 by ayaarab           #+#    #+#             */
-/*   Updated: 2025/02/25 17:11:13 by ayaarab          ###   ########.fr       */
+/*   Updated: 2025/02/25 21:28:26 by ayoub            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	push_all_to_b(t_stack **stackA, t_stack **stackB)
 	int	len;
 	int	i;
 
-	len = ft_lstsize(stackA);
+	len = ft_lstsize(*stackA);
 	i = 0;
 	while (i < len)
 	{

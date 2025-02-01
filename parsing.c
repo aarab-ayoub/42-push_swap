@@ -6,7 +6,7 @@
 /*   By: ayoub <ayoub@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 17:31:39 by ayaarab           #+#    #+#             */
-/*   Updated: 2025/03/02 13:32:20 by ayoub            ###   ########.fr       */
+/*   Updated: 2025/03/02 23:15:56 by ayoub            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ int	main(int argc, char **argv)
     int		len;
 
     stackB = NULL;
-    if (argc <= 2)
+    if (argc < 2)
         return (1);
     arr_size = count_numbers(argc, argv);
     arr = malloc(arr_size * sizeof(int));
@@ -71,12 +71,12 @@ int	main(int argc, char **argv)
         free(arr);
         return (1);
     }
-    int j = 0;
-    while (j < arr_size)
-    {
-        printf("%d\n", arr[j]);
-        j++;
-    }
+    // int j = 0;
+    // while (j < arr_size)
+    // {
+    //     printf("arr[%d] = %d\n", j, arr[j]);
+    //     j++;
+    // }
     stackA = create_stack(arr, arr_size);
     len = ft_lstsize(stackA);
     if (len == 0)
@@ -85,7 +85,7 @@ int	main(int argc, char **argv)
         free_stack(stackA);
         return (1);
     }
-    if (len < 6)
+    if (!is_sorted(&stackA)) 
     {
         if (len < 3)
             sort_dos(&stackA);

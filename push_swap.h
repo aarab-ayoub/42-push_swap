@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ayaarab <ayaarab@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ayoub <ayoub@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 17:30:47 by ayaarab           #+#    #+#             */
-/*   Updated: 2025/02/20 12:42:30 by ayaarab          ###   ########.fr       */
+/*   Updated: 2025/03/02 02:23:24 by ayoub            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,8 +78,18 @@ void				rrb(t_stack **stack_b);
 void				rrr(t_stack **stack_a, t_stack **stack_b);
 
 // sorting
+int					is_sorted(t_stack **stack_a);
+void				sort_dos(t_stack **stack_a);
 void				sort_trois(t_stack **stack_a);
 void				sort_cinq(t_stack **stack_a, t_stack **stack_b);
 void				print_stack(t_stack *stack);
+
+void				sort_big(t_stack **stackA, t_stack **stackB);
+void				final_rotate(t_stack **stackA, t_stack **stackB);
+void				push_all_to_b(t_stack **stackA, t_stack **stackB);
+
+void				apply_moves(t_stack **stackA , t_stack **stackB);
+// void 				cal_costs(t_stack **stackB , t_stack **stackA , t_cost *cost);
+void				find_cheapest(t_stack **stack);
 
 #endif
