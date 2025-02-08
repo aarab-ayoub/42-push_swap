@@ -1,37 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parsing.c                                          :+:      :+:    :+:   */
+/*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ayaarab <ayaarab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/07 17:31:39 by ayaarab           #+#    #+#             */
-/*   Updated: 2025/02/07 19:17:13 by ayaarab          ###   ########.fr       */
+/*   Created: 2025/02/07 17:30:47 by ayaarab           #+#    #+#             */
+/*   Updated: 2025/02/07 19:16:27 by ayaarab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#ifndef PUSH_SWAP_H
+# define PUSH_SWAP_H
 
-int	main(int argc, char **argv)
-{
-	int	i;
-	int	a;
+# include "ft_printf/ft_printf.h"
+# include "gnl/get_next_line.h"
+# include "libft/libft.h"
+# include <stdlib.h>
+# include <unistd.h>
 
-	i = 1;
-	if (argc < 2)
-	{
-		write(1, "\n", 1);
-	}
-	else
-	{
-		while (argv[i])
-		{
-			a = ft_atoi(argv[i]);
-			ft_putnbr(a);
-			write(1, "\n", 1);
-			i++;
-		}
-		write(1, "\n", 1);
-	}
-	return (0);
-}
+#endif
