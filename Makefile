@@ -2,16 +2,11 @@ CC = cc
 NAME = push_swap
 CFLAGS = -Wall -Wextra -Werror
 
-# External libraries
-# LIBFT_DIR = libft
-# PRINTF_DIR = ft_printf
-# GNL_DIR = gnl
+SRC = parsing.c	utils/ft_atoi.c	utils/ft_isdigit.c	utils/ft_lstadd_back.c utils/ft_putnbr_fd.c \
+      utils/ft_lstadd_front.c	utils/ft_lstclear.c	utils/ft_lstlast.c	utils/ft_lstnew.c	utils/ft_lstsize.c	utils/ft_putchar_fd.c \
+      utils/ft_putendl_fd.c	utils/ft_putstr_fd.c	utils/ft_split.c	utils/ft_strcmp.c	utils/ft_strlen.c \
+      utils/is_delimiter.c
 
-# LIBFT = $(LIBFT_DIR)/libft.a
-# PRINTF = $(PRINTF_DIR)/libftprintf.a
-# GNL = $(GNL_DIR)/get_next_line.a
-
-SRC = parsing.c utils.c
 OBJ = $(SRC:.c=.o)
 
 all: $(NAME)
@@ -20,19 +15,8 @@ $(NAME): $(OBJ)
 	@$(CC) $(CFLAGS) -o $(NAME) $(OBJ)
 	@echo "push_swap compiled"
 
-# Compile object files
 %.o: %.c
 	@$(CC) $(CFLAGS) -c $< -o $@
-
-# Build external libraries
-# $(LIBFT):
-# 	@make -C $(LIBFT_DIR)
-
-# $(PRINTF):
-# 	@make -C $(PRINTF_DIR)
-
-# $(GNL):
-# 	make -C $(GNL_DIR)
 
 clean:
 	@rm -f $(OBJ)
