@@ -6,36 +6,85 @@
 /*   By: ayoub <ayoub@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 17:31:39 by ayaarab           #+#    #+#             */
-/*   Updated: 2025/02/09 00:50:53 by ayoub            ###   ########.fr       */
+/*   Updated: 2025/02/09 18:40:45 by ayoub            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static int is_duplicate(int *tab, int nbr, int pos)
+static int process_single_arg(char *arg, int *arr, int index)
 {
-	int i = 0;
-	while (i < pos)
+	if (!is_valid_int(arg) || is_duplicate(arr, ft_atoi(arg), index))
 	{
-		if (tab[i] == nbr)
-			return 1;
-		i++;
+		write(2, "Error\n", 6);
+		return 0;
 	}
-	return 0;
+	arr[index] = ft_atoi(arg);
+	return 1;
 }
 
-static int is_valid_int(const char *str)
+static int process_string_arg(char **split_args, int *arr, int *index)
 {
-	int i = 0;
+	int j = 0;
 
-	if (str[i] == '-' || str[i] == '+')
-		i++;
-	if (str[i] == '\0')
-		return 0;
-	while (str[i])
+	while (split_args[j])
 	{
-		if (!ft_isdigit(str[i]) || (ft_atoi(str) > INT_MAX || ft_atoi(str) < INT_MIN))
+		if (!is_valid_int(split_args[j]) || is_duplicate(arr, ft_atoi(split_args[j]), *index))
+		{
+			write(2, "Error\n", 6);
 			return 0;
+		}
+		arr[(*index)++] = ft_atoi(split_args[j]);
+		j++;
+	}
+	return 1;
+}
+
+static int count_numbers(int argc, char **argv)
+{
+	int i = 1;
+	int count = 0;
+	char **split_args;
+
+	while (i < argc)
+	{
+		if (ft_strchr(argv[i], ' '))
+		{
+			split_args = ft_split(argv[i]);
+			count += count_split_args(split_args);
+			free_split(split_args);
+		}
+		else
+			count++;
+		i++;
+	}
+	return count;
+}
+
+static int parse_numbers(int argc, char **argv, int *arr)
+{
+	int i = 1;
+	int k = 0;
+	char **split_args;
+
+	while (i < argc)
+	{
+		if (ft_strchr(argv[i], ' '))
+		{
+			split_args = ft_split(argv[i]);
+			if (!process_string_arg(split_args, arr, &k))
+			{
+				free_split(split_args);
+				return 0;
+			}
+			free_split(split_args);
+		}
+		else
+		{
+			if (!process_single_arg(argv[i], arr, k))
+				return 0;
+			k++;
+		}
 		i++;
 	}
 	return 1;
@@ -43,42 +92,24 @@ static int is_valid_int(const char *str)
 
 int main(int argc, char **argv)
 {
-	int i;
-	int *arr;
+    int *arr;
+    int arr_size;
 
-	if (argc < 2)
-	{
-		write(1, "\n", 1);
-		exit(1);
-	}
-	arr = malloc((argc - 1) * sizeof(int));
-	if (!arr)
-		return (1);
-
-	i = 1;
-	while (i < argc)
-	{
-		if (!is_valid_int(argv[i]))
-		{
-			write(2, "Error\n", 6);
-			return (1);
-		}
-		arr[i - 1] = ft_atoi(argv[i]);
-		if (is_duplicate(arr, arr[i - 1], i - 1))
-		{
-			write(2, "Error\n", 6);
-			free(arr);
-			return (1);
-		}
-		i++;
-	}
-	i = 0;
-	while (i < argc - 1)
-	{
-		ft_putnbr_fd(arr[i], 2);
-		write(1, "\n", 1);
-		i++;
-	}
-	free(arr);
-	return (0);
+    if (argc < 2)
+    {
+        write(1, "\n", 1);
+        return 1;
+    }
+    arr_size = count_numbers(argc, argv);
+    arr = malloc(arr_size * sizeof(int));
+    if (!arr)
+        return 1;
+    if (!parse_numbers(argc, argv, arr))
+    {
+        free(arr);
+        return 1;
+    }
+    print_numbers(arr, arr_size);
+    free(arr);
+    return 0;
 }

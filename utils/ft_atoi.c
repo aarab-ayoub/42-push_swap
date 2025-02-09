@@ -1,14 +1,11 @@
 #include "../push_swap.h"
 
-int	ft_atoi(const char *str)
+int ft_atoi(const char *str)
 {
-	int i;
-	int sign;
-	int res;
+	size_t i = 0;
+	int sign = 1;
+	unsigned long long result = 0;
 
-	i = 0;
-	sign = 1;
-	res = 0;
 	while (is_delimiter(str[i]))
 		i++;
 	if (str[i] == '-' || str[i] == '+')
@@ -17,14 +14,15 @@ int	ft_atoi(const char *str)
 			sign = -1;
 		i++;
 	}
-	while (ft_isdigit(str[i]))
+	while (str[i] >= '0' && str[i] <= '9')
 	{
-		if (res > INT_MAX / 10 || (res == INT_MAX / 10 && (str[i] - '0') > INT_MAX % 10))
+		result = (result * 10) + (str[i] - '0');
+		if ((sign == 1 && result > INT_MAX) || (sign == -1 && result > (unsigned long long)INT_MAX + 1))
 		{
 			write(2, "Error\n", 6);
 			exit(1);
 		}
-		res = res * 10 + str[i++] - '0';
+		i++;
 	}
-	return (res * sign);
+	return (int)(sign * result);
 }

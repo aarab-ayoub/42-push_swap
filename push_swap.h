@@ -6,7 +6,7 @@
 /*   By: ayoub <ayoub@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 17:30:47 by ayaarab           #+#    #+#             */
-/*   Updated: 2025/02/09 00:35:45 by ayoub            ###   ########.fr       */
+/*   Updated: 2025/02/09 18:41:35 by ayoub            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,17 @@ void	ft_putchar_fd(char c, int fd);
 void	ft_putendl_fd(char *s, int fd);
 void	ft_putstr_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
-char	**ft_split(char const *s, char c);
+char	**ft_split(char *str);
 int		ft_strcmp(const char *s1, const char *s2);
 int		ft_strlen(const char *str);
 int		is_delimiter(char c);
+char	*ft_strchr(const char *s, int c);
+int     is_duplicate(int *tab, int nbr, int pos);
+int     is_valid_int(const char *str);
+void	free_split(char **split);
+int     count_split_args(char **split);
 
+
+
+void	print_numbers(int *arr, int size);
 #endif
