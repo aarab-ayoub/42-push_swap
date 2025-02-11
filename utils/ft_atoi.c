@@ -1,11 +1,26 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ayaarab <ayaarab@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/02/11 12:25:48 by ayaarab           #+#    #+#             */
+/*   Updated: 2025/02/11 12:25:51 by ayaarab          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../push_swap.h"
 
-int ft_atoi(const char *str)
+int	ft_atoi(const char *str)
 {
-	size_t i = 0;
-	int sign = 1;
-	unsigned long long result = 0;
+	size_t				i;
+	int					sign;
+	unsigned long long	result;
 
+	i = 0;
+	sign = 1;
+	result = 0;
 	while (is_delimiter(str[i]))
 		i++;
 	if (str[i] == '-' || str[i] == '+')
@@ -17,7 +32,8 @@ int ft_atoi(const char *str)
 	while (str[i] >= '0' && str[i] <= '9')
 	{
 		result = (result * 10) + (str[i] - '0');
-		if ((sign == 1 && result > INT_MAX) || (sign == -1 && result > (unsigned long long)INT_MAX + 1))
+		if ((sign == 1 && result > INT_MAX) || (sign == -1
+				&& result > (unsigned long long)INT_MAX + 1))
 		{
 			write(2, "Error\n", 6);
 			exit(1);
