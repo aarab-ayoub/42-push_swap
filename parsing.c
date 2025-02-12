@@ -3,103 +3,38 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ayaarab <ayaarab@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ayoub <ayoub@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 17:31:39 by ayaarab           #+#    #+#             */
-/*   Updated: 2025/02/11 12:25:24 by ayaarab          ###   ########.fr       */
+/*   Updated: 2025/02/12 02:31:18 by ayoub            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static int	process_single_arg(char *arg, int *arr, int index)
+t_stack *create_stack(int *arr, int len)
 {
-	if (!is_valid_int(arg) || is_duplicate(arr, ft_atoi(arg), index))
+	t_stack *stack;
+	t_stack *new;
+	int i = 0;
+	stack = NULL;
+	while (i < len)
 	{
-		write(2, "Error\n", 6);
-		return (0);
-	}
-	arr[index] = ft_atoi(arg);
-	return (1);
-}
-
-static int	process_string_arg(char **split_args, int *arr, int *index)
-{
-	int	j;
-
-	j = 0;
-	while (split_args[j])
-	{
-		if (!is_valid_int(split_args[j]) || is_duplicate(arr,
-				ft_atoi(split_args[j]), *index))
-		{
-			write(2, "Error\n", 6);
-			return (0);
-		}
-		arr[(*index)++] = ft_atoi(split_args[j]);
-		j++;
-	}
-	return (1);
-}
-
-static int	count_numbers(int argc, char **argv)
-{
-	int		i;
-	int		count;
-	char	**split_args;
-
-	i = 1;
-	count = 0;
-	while (i < argc)
-	{
-		if (ft_strchr(argv[i], ' '))
-		{
-			split_args = ft_split(argv[i]);
-			count += count_split_args(split_args);
-			free_split(split_args);
-		}
-		else
-			count++;
+		new = malloc(sizeof(t_stack));
+		new->nbr = arr[i];
+		new->next = stack;
+		stack = new;
 		i++;
 	}
-	return (count);
-}
-
-static int	parse_numbers(int argc, char **argv, int *arr)
-{
-	int		i;
-	int		k;
-	char	**split_args;
-
-	i = 1;
-	k = 0;
-	while (i < argc)
-	{
-		if (ft_strchr(argv[i], ' '))
-		{
-			split_args = ft_split(argv[i]);
-			if (!process_string_arg(split_args, arr, &k))
-			{
-				free_split(split_args);
-				return (0);
-			}
-			free_split(split_args);
-		}
-		else
-		{
-			if (!process_single_arg(argv[i], arr, k))
-				return (0);
-			k++;
-		}
-		i++;
-	}
-	return (1);
+	return (stack);		
 }
 
 int	main(int argc, char **argv)
 {
 	int	*arr;
 	int	arr_size;
+	t_stack *stackA;
+	// t_stack *stackB;
 
 	if (argc < 2)
 	{
@@ -115,7 +50,9 @@ int	main(int argc, char **argv)
 		free(arr);
 		return (1);
 	}
-	print_numbers(arr, arr_size);
+	stackA = create_stack(arr,arr_size);
+	// stackB = NULL; 
+	print_stack(stackA);
 	free(arr);
 	return (0);
 }

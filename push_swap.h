@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ayaarab <ayaarab@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ayoub <ayoub@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 17:30:47 by ayaarab           #+#    #+#             */
-/*   Updated: 2025/02/11 12:57:55 by ayaarab          ###   ########.fr       */
+/*   Updated: 2025/02/12 02:28:16 by ayoub            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,14 @@ typedef struct s_list
 	void			*content;
 	struct s_list	*next;
 }					t_list;
+
+typedef	struct s_stack
+{
+	int	nbr;
+	int	index;
+	struct s_stack	*next;
+	
+}				t_stack;
 
 int					ft_atoi(const char *str);
 int					ft_isdigit(int c);
@@ -45,5 +53,19 @@ int					is_valid_int(const char *str);
 void				free_split(char **split);
 int					count_split_args(char **split);
 
-void				print_numbers(int *arr, int size);
+int					parse_numbers(int argc, char **argv, int *arr);
+int					count_numbers(int argc, char **argv);
+
+
+
+//rules
+void				push(t_stack **stack, int value);
+void				swap(t_stack **stack);           
+void				rotate(t_stack **stack);         
+void				reverse_rotate(t_stack **stack); 
+
+
+
+void print_stack(t_stack *stack);
+
 #endif
