@@ -1,6 +1,6 @@
 CC = cc
 NAME = push_swap
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -fsanitize=address -g
 
 SRC = parsing.c	utils/ft_atoi.c	utils/ft_isdigit.c	utils/ft_lstadd_back.c utils/ft_putnbr_fd.c \
       utils/ft_lstadd_front.c	utils/ft_lstclear.c	utils/ft_lstlast.c	utils/ft_lstnew.c	utils/ft_lstsize.c	utils/ft_putchar_fd.c \

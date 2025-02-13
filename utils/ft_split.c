@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ayaarab <ayaarab@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ayoub <ayoub@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 12:26:25 by ayaarab           #+#    #+#             */
-/*   Updated: 2025/02/11 12:26:31 by ayaarab          ###   ########.fr       */
+/*   Updated: 2025/02/12 16:09:41 by ayoub            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,12 +70,12 @@ char	**ft_split(char *str)
 		return (NULL);
 	while (str[i])
 	{
-		while (str[i] == 32 || (str[i] >= 9 && str[i] <= 13))
+		while (is_delimiter(str[i]))
 			i++;
 		if (str[i] == '\0')
 			break ;
 		j = i;
-		while (str[i] && str[i] != 32 && (str[i] < 9 || str[i] > 13))
+		while (str[i] && !is_delimiter(str[i]))
 			i++;
 		len = i - j;
 		alloc_str[p] = copy_word(&str[j], len);

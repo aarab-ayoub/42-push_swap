@@ -6,7 +6,7 @@
 /*   By: ayoub <ayoub@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 17:30:47 by ayaarab           #+#    #+#             */
-/*   Updated: 2025/02/12 02:28:16 by ayoub            ###   ########.fr       */
+/*   Updated: 2025/02/12 15:55:52 by ayoub            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,18 @@
 # include <stdlib.h>
 # include <unistd.h>
 
+// typedef struct s_list
+// {
+	// void			*content;
+	// struct s_list	*next;
+// }					t_list;
+// 
+
 typedef struct s_list
 {
-	void			*content;
-	struct s_list	*next;
-}					t_list;
+	void *content;
+	struct s_list *next;
+}	t_list;
 
 typedef	struct s_stack
 {
