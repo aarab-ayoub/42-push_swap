@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils2.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ayoub <ayoub@student.42.fr>                +#+  +:+       +#+        */
+/*   By: ayaarab <ayaarab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 12:57:49 by ayaarab           #+#    #+#             */
-/*   Updated: 2025/02/12 15:56:07 by ayoub            ###   ########.fr       */
+/*   Updated: 2025/02/15 19:06:22 by ayaarab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,14 +57,14 @@ void	free_split(char **split)
 	free(split);
 }
 
-void print_stack(t_stack *stack)
+void	print_stack(t_stack *stack)
 {
-    while (stack)
-    {
-        ft_putnbr_fd(stack->nbr, 1);
-        write(1, "\n", 1);
-        stack = stack->next;
-    }
+	while (stack)
+	{
+		ft_putnbr_fd(stack->nbr, 1);
+		write(1, "\n", 1);
+		stack = stack->next;
+	}
 }
 
 int	count_split_args(char **split)

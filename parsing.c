@@ -3,20 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ayoub <ayoub@student.42.fr>                +#+  +:+       +#+        */
+/*   By: ayaarab <ayaarab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 17:31:39 by ayaarab           #+#    #+#             */
-/*   Updated: 2025/02/15 18:58:59 by ayoub            ###   ########.fr       */
+/*   Updated: 2025/02/15 19:05:46 by ayaarab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_stack *create_stack(int *arr, int len)
+t_stack	*create_stack(int *arr, int len)
 {
-	t_stack *stack;
-	t_stack *new;
-	int i = 0;
+	t_stack	*stack;
+	t_stack	*new;
+	int		i;
+
+	i = 0;
 	stack = NULL;
 	while (i < len)
 	{
@@ -26,15 +28,15 @@ t_stack *create_stack(int *arr, int len)
 		stack = new;
 		i++;
 	}
-	return (stack);		
+	return (stack);
 }
 
 int	main(int argc, char **argv)
 {
-	int	*arr;
-	int	arr_size;
-	t_stack *stackA;
-	t_stack *stackB;
+	int		*arr;
+	int		arr_size;
+	t_stack	*stackA;
+	t_stack	*stackB;
 
 	if (argc < 2)
 	{
@@ -50,8 +52,8 @@ int	main(int argc, char **argv)
 		free(arr);
 		return (1);
 	}
-	stackA = create_stack(arr,arr_size);
-	stackB = NULL; 
+	stackA = create_stack(arr, arr_size);
+	stackB = NULL;
 	print_stack(stackA);
 	free(arr);
 	return (0);

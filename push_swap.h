@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ayoub <ayoub@student.42.fr>                +#+  +:+       +#+        */
+/*   By: ayaarab <ayaarab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 17:30:47 by ayaarab           #+#    #+#             */
-/*   Updated: 2025/02/12 15:55:52 by ayoub            ###   ########.fr       */
+/*   Updated: 2025/02/15 19:06:05 by ayaarab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,26 +17,19 @@
 # include <stdlib.h>
 # include <unistd.h>
 
-// typedef struct s_list
-// {
-	// void			*content;
-	// struct s_list	*next;
-// }					t_list;
-// 
-
 typedef struct s_list
 {
-	void *content;
-	struct s_list *next;
-}	t_list;
+	void			*content;
+	struct s_list	*next;
+}					t_list;
 
-typedef	struct s_stack
+typedef struct s_stack
 {
-	int	nbr;
-	int	index;
+	int				nbr;
+	int				index;
 	struct s_stack	*next;
-	
-}				t_stack;
+
+}					t_stack;
 
 int					ft_atoi(const char *str);
 int					ft_isdigit(int c);
@@ -63,16 +56,12 @@ int					count_split_args(char **split);
 int					parse_numbers(int argc, char **argv, int *arr);
 int					count_numbers(int argc, char **argv);
 
-
-
-//rules
+// rules
 void				push(t_stack **stack, int value);
-void				swap(t_stack **stack);           
-void				rotate(t_stack **stack);         
-void				reverse_rotate(t_stack **stack); 
+void				swap(t_stack **stack);
+void				rotate(t_stack **stack);
+void				reverse_rotate(t_stack **stack);
 
-
-
-void print_stack(t_stack *stack);
+void				print_stack(t_stack *stack);
 
 #endif
