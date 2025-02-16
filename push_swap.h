@@ -6,7 +6,7 @@
 /*   By: ayaarab <ayaarab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 17:30:47 by ayaarab           #+#    #+#             */
-/*   Updated: 2025/02/15 19:06:05 by ayaarab          ###   ########.fr       */
+/*   Updated: 2025/02/15 19:15:10 by ayaarab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,14 @@ typedef struct s_stack
 	struct s_stack	*next;
 
 }					t_stack;
+
+typedef struct s_cost
+{
+	int				cost_a;
+	int				cost_b;
+	int				total_cost;
+	int				target;
+}					t_cost;
 
 int					ft_atoi(const char *str);
 int					ft_isdigit(int c);
