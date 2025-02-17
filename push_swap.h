@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ayaarab <ayaarab@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ayoub <ayoub@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 17:30:47 by ayaarab           #+#    #+#             */
-/*   Updated: 2025/02/15 19:15:10 by ayaarab          ###   ########.fr       */
+/*   Updated: 2025/02/17 01:37:28 by ayoub            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,10 +65,23 @@ int					parse_numbers(int argc, char **argv, int *arr);
 int					count_numbers(int argc, char **argv);
 
 // rules
-void				push(t_stack **stack, int value);
+void				push(t_stack **s1, t_stack **s2);
 void				swap(t_stack **stack);
 void				rotate(t_stack **stack);
 void				reverse_rotate(t_stack **stack);
+
+//moves
+void				sa(t_stack **stack_a);
+void				sb(t_stack **stack_b);
+void				ss(t_stack **stack_a, t_stack **stack_b);
+void				pa(t_stack **stack_a, t_stack **stack_b);
+void				pb(t_stack **stack_a, t_stack **stack_b);
+void				ra(t_stack **stack_a);
+void				rb(t_stack **stack_b);
+void				rr(t_stack **stack_a, t_stack **stack_b);
+void				rra(t_stack **stack_a);
+void				rrb(t_stack **stack_b);
+void				rrr(t_stack **stack_a, t_stack **stack_b);
 
 void				print_stack(t_stack *stack);
 
