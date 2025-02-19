@@ -6,7 +6,7 @@
 /*   By: ayoub <ayoub@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/15 19:06:07 by ayaarab           #+#    #+#             */
-/*   Updated: 2025/02/17 01:05:05 by ayoub            ###   ########.fr       */
+/*   Updated: 2025/02/19 21:50:01 by ayoub            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,15 @@
 
 void	push(t_stack **s1, t_stack **s2)
 {
-	t_stack *head;
-	
-	if (!s2)
-		return ;
-	
-	head = (*s2);
-	(*s2) = (*s2)->next;
-	head->index = (*s1);
-	(*s1) = head;
-	 
+    t_stack *head;
+
+    if (!s2 || !(*s2))
+        return;
+
+    head = *s2;
+    *s2 = (*s2)->next;
+    head->next = *s1;
+    *s1 = head;
 }
 
 void	swap(t_stack **stack)
