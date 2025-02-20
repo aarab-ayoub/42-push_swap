@@ -6,7 +6,7 @@
 /*   By: ayoub <ayoub@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 17:30:47 by ayaarab           #+#    #+#             */
-/*   Updated: 2025/02/19 21:53:29 by ayoub            ###   ########.fr       */
+/*   Updated: 2025/02/20 03:23:57 by ayoub            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,7 @@ void				rrr(t_stack **stack_a, t_stack **stack_b);
 
 //sorting
 void				sort_trois(t_stack **stack_a);
+void				sort_cinq(t_stack **stack_a, t_stack **stack_b);
 void				print_stack(t_stack *stack);
 
 #endif
