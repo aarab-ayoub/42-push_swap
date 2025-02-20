@@ -3,13 +3,12 @@
 /*                                                        :::      ::::::::   */
 /*   move2.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ayoub <ayoub@student.42.fr>                +#+  +:+       +#+        */
+/*   By: ayaarab <ayaarab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/16 16:43:24 by ayaarab           #+#    #+#             */
-/*   Updated: 2025/02/19 21:50:30 by ayoub            ###   ########.fr       */
+/*   Updated: 2025/02/20 12:44:02 by ayaarab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #include "../push_swap.h"
 
@@ -34,12 +33,12 @@ void	ss(t_stack **stack_a, t_stack **stack_b)
 
 void	pa(t_stack **stack_a, t_stack **stack_b)
 {
-    push(stack_a, stack_b);
-    ft_putstr_fd("pa\n", 1);
+	push(stack_a, stack_b);
+	ft_putstr_fd("pa\n", 1);
 }
 
 void	pb(t_stack **stack_a, t_stack **stack_b)
 {
-    push(stack_b, stack_a);
-    ft_putstr_fd("pb\n", 1);
+	push(stack_b, stack_a);
+	ft_putstr_fd("pb\n", 1);
 }

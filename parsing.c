@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ayoub <ayoub@student.42.fr>                +#+  +:+       +#+        */
+/*   By: ayaarab <ayaarab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 17:31:39 by ayaarab           #+#    #+#             */
-/*   Updated: 2025/02/20 03:26:23 by ayoub            ###   ########.fr       */
+/*   Updated: 2025/02/20 12:34:21 by ayaarab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,15 +70,9 @@ int	main(int argc, char **argv)
 		free(arr);
 		return (1);
 	}
-	int j = 0;
-	while (j < arr_size)
-	{
-		printf("arr[%d] = %d\n",j,arr[j]);
-		j++;
-	}
 	stackA = create_stack(arr, arr_size);
 	print_stack(stackA);
-	
+	sort_cinq(&stackA, &stackB);
 	print_stack(stackA);
 	free(arr);
 	free_stack(stackA);

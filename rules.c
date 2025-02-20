@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rules.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ayoub <ayoub@student.42.fr>                +#+  +:+       +#+        */
+/*   By: ayaarab <ayaarab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/15 19:06:07 by ayaarab           #+#    #+#             */
-/*   Updated: 2025/02/19 21:50:01 by ayoub            ###   ########.fr       */
+/*   Updated: 2025/02/20 12:42:35 by ayaarab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,14 @@
 
 void	push(t_stack **s1, t_stack **s2)
 {
-    t_stack *head;
+	t_stack	*head;
 
-    if (!s2 || !(*s2))
-        return;
-
-    head = *s2;
-    *s2 = (*s2)->next;
-    head->next = *s1;
-    *s1 = head;
+	if (!s2 || !(*s2))
+		return ;
+	head = *s2;
+	*s2 = (*s2)->next;
+	head->next = *s1;
+	*s1 = head;
 }
 
 void	swap(t_stack **stack)
