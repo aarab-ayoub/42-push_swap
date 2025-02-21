@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ayaarab <ayaarab@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ayoub <ayoub@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 17:31:39 by ayaarab           #+#    #+#             */
-/*   Updated: 2025/02/20 12:34:21 by ayaarab          ###   ########.fr       */
+/*   Updated: 2025/02/21 20:51:55 by ayoub            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,8 +71,12 @@ int	main(int argc, char **argv)
 		return (1);
 	}
 	stackA = create_stack(arr, arr_size);
+	int len = ft_lstsize(stackA);
 	print_stack(stackA);
-	sort_cinq(&stackA, &stackB);
+	if (len <= 3)
+		sort_trois(&stackA);
+	else if (len < 6)
+		sort_cinq(&stackA, &stackB);
 	print_stack(stackA);
 	free(arr);
 	free_stack(stackA);

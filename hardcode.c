@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   hardcode.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ayaarab <ayaarab@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ayoub <ayoub@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/15 19:13:19 by ayaarab           #+#    #+#             */
-/*   Updated: 2025/02/20 12:41:44 by ayaarab          ###   ########.fr       */
+/*   Updated: 2025/02/21 20:54:52 by ayoub            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,12 +100,22 @@ void	sort_cinq(t_stack **stack_a, t_stack **stack_b)
 {
 	int	min;
 	int	second_min;
-
-	min = find_min(stack_a);
-	push_min_to_b(stack_a, stack_b, min);
-	second_min = find_min(stack_a);
-	push_min_to_b(stack_a, stack_b, second_min);
-	sort_trois(stack_a);
-	pa(stack_a, stack_b);
-	pa(stack_a, stack_b);
+	int len = ft_lstsize(*stack_a);
+	if (len == 4)
+	{
+		min = find_min(stack_a);
+		push_min_to_b(stack_a, stack_b, min);
+		sort_trois(stack_a);
+		pa(stack_a, stack_b);
+	}
+	else
+	{
+		min = find_min(stack_a);
+		push_min_to_b(stack_a, stack_b, min);
+		second_min = find_min(stack_a);
+		push_min_to_b(stack_a, stack_b, second_min);
+		sort_trois(stack_a);
+		pa(stack_a, stack_b);
+		pa(stack_a, stack_b);
+	}
 }
