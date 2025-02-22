@@ -1,20 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   move3.c                                            :+:      :+:    :+:   */
+/*   sort_big.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ayaarab <ayaarab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/25 13:08:11 by ayaarab           #+#    #+#             */
-/*   Updated: 2025/02/25 13:08:12 by ayaarab          ###   ########.fr       */
+/*   Created: 2025/02/25 13:11:07 by ayaarab           #+#    #+#             */
+/*   Updated: 2025/02/25 17:11:13 by ayaarab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "push_swap.h"
 
-void	rrr(t_stack **stack_a, t_stack **stack_b)
+void	push_all_to_b(t_stack **stackA, t_stack **stackB)
 {
-	reverse_rotate(stack_a);
-	reverse_rotate(stack_b);
-	ft_putstr_fd("rrr\n", 1);
+	int	len;
+	int	i;
+
+	len = ft_lstsize(stackA);
+	i = 0;
+	while (i < len)
+	{
+		pb(stackA, stackB);
+		i++;
+	}
+}
+void	final_rotate(t_stack **stackA, t_stack **stackB)
+{
+	;
+}
+void	sort_big(t_stack **stackA, t_stack **stackB)
+{
+	;
 }

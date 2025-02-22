@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   hardcode.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ayoub <ayoub@student.42.fr>                +#+  +:+       +#+        */
+/*   By: ayaarab <ayaarab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/15 19:13:19 by ayaarab           #+#    #+#             */
-/*   Updated: 2025/02/21 20:54:52 by ayoub            ###   ########.fr       */
+/*   Updated: 2025/02/25 17:11:19 by ayaarab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,7 +100,9 @@ void	sort_cinq(t_stack **stack_a, t_stack **stack_b)
 {
 	int	min;
 	int	second_min;
-	int len = ft_lstsize(*stack_a);
+	int	len;
+
+	len = ft_lstsize(*stack_a);
 	if (len == 4)
 	{
 		min = find_min(stack_a);

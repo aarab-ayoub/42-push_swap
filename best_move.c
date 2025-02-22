@@ -1,13 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort.c                                             :+:      :+:    :+:   */
+/*   best_move.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ayoub <ayoub@student.42.fr>                +#+  +:+       +#+        */
+/*   By: ayaarab <ayaarab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/21 20:48:58 by ayoub             #+#    #+#             */
-/*   Updated: 2025/02/24 20:07:48 by ayoub            ###   ########.fr       */
+/*   Created: 2025/02/25 13:07:31 by ayaarab           #+#    #+#             */
+/*   Updated: 2025/02/25 17:40:44 by ayaarab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void cal_costs(t_stack **stackB)
+{
+	;
+}
+
+void	find_cheapest(t_stack **stack)
+{
+	;
+}
+void	apply_moves(t_stack **stackA , t_stack **stackB)
+{
+	;
+}

@@ -3,20 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ayoub <ayoub@student.42.fr>                +#+  +:+       +#+        */
+/*   By: ayaarab <ayaarab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 17:31:39 by ayaarab           #+#    #+#             */
-/*   Updated: 2025/02/21 20:51:55 by ayoub            ###   ########.fr       */
+/*   Updated: 2025/02/25 13:07:48 by ayaarab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include <stdio.h>
 
-void free_stack(t_stack *stack)
+void	free_stack(t_stack *stack)
 {
-	t_stack *head;
-	
+	t_stack	*head;
+
 	if (!stack)
 		return ;
 	while (stack->next)
@@ -38,7 +38,7 @@ t_stack	*create_stack(int *arr, int len)
 	while (i < len)
 	{
 		new = malloc(sizeof(t_stack));
-		if(!new)
+		if (!new)
 			return (NULL);
 		new->nbr = arr[len - 1];
 		new->next = stack;
@@ -54,7 +54,8 @@ int	main(int argc, char **argv)
 	int		arr_size;
 	t_stack	*stackA;
 	t_stack	*stackB;
-	
+	int		len;
+
 	stackB = NULL;
 	if (argc < 2)
 	{
@@ -71,14 +72,17 @@ int	main(int argc, char **argv)
 		return (1);
 	}
 	stackA = create_stack(arr, arr_size);
-	int len = ft_lstsize(stackA);
+	len = ft_lstsize(stackA);
 	print_stack(stackA);
 	if (len <= 3)
 		sort_trois(&stackA);
 	else if (len < 6)
 		sort_cinq(&stackA, &stackB);
+	// else
+	// 	sort();
 	print_stack(stackA);
 	free(arr);
 	free_stack(stackA);
+	free_stack(stackB);
 	return (0);
 }
