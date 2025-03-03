@@ -6,7 +6,7 @@
 /*   By: ayaarab <ayaarab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/25 13:11:07 by ayaarab           #+#    #+#             */
-/*   Updated: 2025/03/03 01:16:01 by ayaarab          ###   ########.fr       */
+/*   Updated: 2025/03/03 02:40:12 by ayaarab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,5 +31,13 @@ void	final_rotate(t_stack **stackA, t_stack **stackB)
 }
 void	sort_big(t_stack **stackA, t_stack **stackB)
 {
-	;
+	push_all_to_b(stackA,stackB);
+	sort_trois(stackA);
+	while (*stackB)
+	{
+		t_cost cheapest;
+		find_cheapest(*stackB , &cheapest);
+		apply_moves(stackA,stackB,&cheapest);
+	}
+	
 }
