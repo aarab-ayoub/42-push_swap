@@ -6,7 +6,7 @@
 /*   By: ayoub <ayoub@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/25 13:07:31 by ayaarab           #+#    #+#             */
-/*   Updated: 2025/03/04 03:09:09 by ayoub            ###   ########.fr       */
+/*   Updated: 2025/03/04 16:13:34 by ayoub            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,10 +71,10 @@ void optimize_rotations(t_stack **stackA, t_stack **stackB, t_cost *cost)
 void apply_moves(t_stack **stackA, t_stack **stackB, t_cost *cheapest) {
     t_stack *current;
 
-    optimize_rotations(stackA, stackB, cheapest);
-
     current = *stackA;
-    while (current && current->nbr != cheapest->target) {
+    optimize_rotations(stackA, stackB, cheapest);
+    while (current && current->nbr != cheapest->target)
+    {
         current = current->next;
     }
     if (current) {
@@ -87,6 +87,7 @@ void apply_moves(t_stack **stackA, t_stack **stackB, t_cost *cheapest) {
         }
     }
 
+    // Rotate stack B to bring element to the top
     if (cheapest->cost_b <= ft_lstsize(*stackB) / 2) {
         for (int i = 0; i < cheapest->cost_b; i++)
             rb(stackB);
@@ -95,5 +96,8 @@ void apply_moves(t_stack **stackA, t_stack **stackB, t_cost *cheapest) {
             rrb(stackB);
     }
 
+    // Push the element to stack A
     pa(stackA, stackB);
+    update_indexes(*stackA);
+    update_indexes(*stackB);
 }

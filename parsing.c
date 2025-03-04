@@ -6,12 +6,11 @@
 /*   By: ayoub <ayoub@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 17:31:39 by ayaarab           #+#    #+#             */
-/*   Updated: 2025/03/04 02:18:17 by ayoub            ###   ########.fr       */
+/*   Updated: 2025/03/04 16:14:42 by ayoub            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <stdio.h>
 
 void	free_stack(t_stack *stack)
 {
@@ -100,8 +99,8 @@ int	main(int argc, char **argv)
 	// else
 	// {
 	//     sort_big(&stackA, &stackB);
-	// }
-	print_stack(stackA);
+	// // }
+	// print_stack(stackA);
 	free(arr);
 	free_stack(stackA);
 	return (0);

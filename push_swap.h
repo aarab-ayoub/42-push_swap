@@ -6,7 +6,7 @@
 /*   By: ayoub <ayoub@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 17:30:47 by ayaarab           #+#    #+#             */
-/*   Updated: 2025/03/04 02:26:06 by ayoub            ###   ########.fr       */
+/*   Updated: 2025/03/04 16:12:14 by ayoub            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <limits.h>
 # include <stdlib.h>
 # include <unistd.h>
+#include <stdio.h>
 
 typedef struct s_stack
 {
@@ -97,7 +98,8 @@ void				final_rotate(t_stack **stackA);
 void				push_all_to_b(t_stack **stackA, t_stack **stackB);
 
 int					find_target(t_stack *stackA, int value);
-void				print_cost(t_cost *cost);
-
+// void				print_cost(t_cost *cost);
+void				final_rotate(t_stack **stackA);
+void				update_indexes(t_stack *stack);
 
 #endif
