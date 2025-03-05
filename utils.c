@@ -6,7 +6,7 @@
 /*   By: ayoub <ayoub@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/21 20:56:06 by ayoub             #+#    #+#             */
-/*   Updated: 2025/03/07 03:33:24 by ayoub            ###   ########.fr       */
+/*   Updated: 2025/03/07 04:05:12 by ayoub            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,28 @@ void update_indexes(t_stack *stack)
         stack->index = index;
         index++;
         stack = stack->next;
+    }
+}
+
+void    assign_indexes(t_stack *stack)
+{
+    t_stack *curr;
+    t_stack *comp;
+    int     idx;
+
+    curr = stack;
+    while (curr)
+    {
+        idx = 0;
+        comp = stack;
+        while (comp)
+        {
+            if (curr->nbr > comp->nbr)
+                idx++;
+            comp = comp->next;
+        }
+        curr->index = idx;
+        curr = curr->next;
     }
 }
 

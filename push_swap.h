@@ -6,7 +6,7 @@
 /*   By: ayoub <ayoub@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 17:30:47 by ayaarab           #+#    #+#             */
-/*   Updated: 2025/03/07 03:33:56 by ayoub            ###   ########.fr       */
+/*   Updated: 2025/03/07 04:04:57 by ayoub            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,9 @@ void				sort_cinq(t_stack **stack_a, t_stack **stack_b);
 void				print_stack(t_stack *stack);
 
 
-
+void    sort_big(t_stack **stack_a, t_stack **stack_b);
+int     get_max_pos(t_stack *stack);
+void    assign_indexes(t_stack *stack);
 
 // best move functions
 
