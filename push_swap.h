@@ -6,7 +6,7 @@
 /*   By: ayoub <ayoub@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 17:30:47 by ayaarab           #+#    #+#             */
-/*   Updated: 2025/03/04 16:12:14 by ayoub            ###   ########.fr       */
+/*   Updated: 2025/03/07 03:33:56 by ayoub            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,13 +26,13 @@ typedef struct s_stack
 
 }					t_stack;
 
-typedef struct s_cost
-{
-	int				cost_a;
-	int				cost_b;
-	int				total_cost;
-	int				target;
-}					t_cost;
+// typedef struct s_cost
+// {
+// 	int				cost_a;
+// 	int				cost_b;
+// 	int				total_cost;
+// 	int				target;
+// }					t_cost;
 
 int					ft_atoi(const char *str);
 int					ft_isdigit(int c);
@@ -86,20 +86,21 @@ void				sort_trois(t_stack **stack_a);
 void				sort_cinq(t_stack **stack_a, t_stack **stack_b);
 void				print_stack(t_stack *stack);
 
-void				cal_cost(t_stack *stackA, t_stack *stackB, t_cost *cost);
-void				find_cheapest(t_stack *stackA, t_stack *stackB, t_cost *cheapest);
-void				apply_moves(t_stack **stackA, t_stack **stackB,
-						t_cost *cheapest);
-void				optimize_rotations(t_stack **stackA, t_stack **stackB,
-						t_cost *cost);
 
-void				sort_big(t_stack **stackA, t_stack **stackB);
-void				final_rotate(t_stack **stackA);
-void				push_all_to_b(t_stack **stackA, t_stack **stackB);
 
-int					find_target(t_stack *stackA, int value);
+
+// best move functions
+
+// void				final_rotate(t_stack **stackA);
+// int					find_target(t_stack *stackA, int value);
+// void				update_indexes(t_stack *stack);
+// void				push_all_to_b(t_stack **stackA, t_stack **stackB);
+// void				sort_big(t_stack **stackA, t_stack **stackB);
 // void				print_cost(t_cost *cost);
-void				final_rotate(t_stack **stackA);
-void				update_indexes(t_stack *stack);
-
+// void				cal_cost(t_stack *stackA, t_stack *stackB, t_cost *cost);
+// void				find_cheapest(t_stack *stackA, t_stack *stackB, t_cost *cheapest);
+// void				apply_moves(t_stack **stackA, t_stack **stackB,
+// 						t_cost *cheapest);
+// void				optimize_rotations(t_stack **stackA, t_stack **stackB,
+// 						t_cost *cost);
 #endif
