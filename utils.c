@@ -3,13 +3,12 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ayoub <ayoub@student.42.fr>                +#+  +:+       +#+        */
+/*   By: ayaarab <ayaarab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/21 20:56:06 by ayoub             #+#    #+#             */
-/*   Updated: 2025/03/07 04:05:12 by ayoub            ###   ########.fr       */
+/*   Updated: 2025/03/08 03:21:53 by ayaarab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #include "push_swap.h"
 
@@ -29,36 +28,39 @@ int	is_sorted(t_stack **stack_a)
 	return (1);
 }
 
-void update_indexes(t_stack *stack) 
+void	update_indexes(t_stack *stack)
 {
-    int index = 0;
-    while (stack) {
-        stack->index = index;
-        index++;
-        stack = stack->next;
-    }
+	int	index;
+
+	index = 0;
+	while (stack)
+	{
+		stack->index = index;
+		index++;
+		stack = stack->next;
+	}
 }
 
-void    assign_indexes(t_stack *stack)
+void	assign_indexes(t_stack *stack)
 {
-    t_stack *curr;
-    t_stack *comp;
-    int     idx;
+	t_stack	*curr;
+	t_stack	*comp;
+	int		idx;
 
-    curr = stack;
-    while (curr)
-    {
-        idx = 0;
-        comp = stack;
-        while (comp)
-        {
-            if (curr->nbr > comp->nbr)
-                idx++;
-            comp = comp->next;
-        }
-        curr->index = idx;
-        curr = curr->next;
-    }
+	curr = stack;
+	while (curr)
+	{
+		idx = 0;
+		comp = stack;
+		while (comp)
+		{
+			if (curr->nbr > comp->nbr)
+				idx++;
+			comp = comp->next;
+		}
+		curr->index = idx;
+		curr = curr->next;
+	}
 }
 
 // int find_target(t_stack *stackA, int value) {
@@ -85,7 +87,7 @@ void    assign_indexes(t_stack *stack)
 //             current = current->next;
 //         }
 //     }
-//     return target;
+//     return (target);
 // }
 
 // void final_rotate(t_stack **stackA) {

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   hardcode.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ayoub <ayoub@student.42.fr>                +#+  +:+       +#+        */
+/*   By: ayaarab <ayaarab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/15 19:13:19 by ayaarab           #+#    #+#             */
-/*   Updated: 2025/03/04 03:15:45 by ayoub            ###   ########.fr       */
+/*   Updated: 2025/03/08 03:19:11 by ayaarab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,33 +14,31 @@
 
 void	sort_trois(t_stack **stack_a)
 {
-    int	a;
-    int	b;
-    int	c;
+	int	a;
+	int	b;
+	int	c;
 
-    if (!stack_a || !*stack_a || !(*stack_a)->next || !(*stack_a)->next->next)
-        return;
-
-    a = (*stack_a)->nbr;
-    b = (*stack_a)->next->nbr;
-    c = (*stack_a)->next->next->nbr;
-
-    if (a > b && b > c && a > c)
-    {
-        sa(stack_a);
-        rra(stack_a);
-    }
-    else if (a > b && b < c && a < c)
-        sa(stack_a);
-    else if (a > b && b < c && a > c)
-        ra(stack_a);
-    else if (a < b && b > c && a < c)
-    {
-        sa(stack_a);
-        ra(stack_a);
-    }
-    else if (a < b && b > c && a > c)
-        rra(stack_a);
+	if (!stack_a || !*stack_a || !(*stack_a)->next || !(*stack_a)->next->next)
+		return ;
+	a = (*stack_a)->nbr;
+	b = (*stack_a)->next->nbr;
+	c = (*stack_a)->next->next->nbr;
+	if (a > b && b > c && a > c)
+	{
+		sa(stack_a);
+		rra(stack_a);
+	}
+	else if (a > b && b < c && a < c)
+		sa(stack_a);
+	else if (a > b && b < c && a > c)
+		ra(stack_a);
+	else if (a < b && b > c && a < c)
+	{
+		sa(stack_a);
+		ra(stack_a);
+	}
+	else if (a < b && b > c && a > c)
+		rra(stack_a);
 }
 
 static int	find_min(t_stack **stack)
@@ -58,6 +56,7 @@ static int	find_min(t_stack **stack)
 	}
 	return (min);
 }
+
 static void	traitement(int pos, t_stack **stack_a, t_stack **stack_b)
 {
 	if (pos == 0)
@@ -85,6 +84,7 @@ static void	traitement(int pos, t_stack **stack_a, t_stack **stack_b)
 		pb(stack_a, stack_b);
 	}
 }
+
 static void	push_min_to_b(t_stack **stack_a, t_stack **stack_b, int min)
 {
 	t_stack	*current;

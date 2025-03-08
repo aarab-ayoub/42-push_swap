@@ -6,7 +6,7 @@
 /*   By: ayaarab <ayaarab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 12:25:48 by ayaarab           #+#    #+#             */
-/*   Updated: 2025/02/11 12:25:51 by ayaarab          ###   ########.fr       */
+/*   Updated: 2025/03/08 03:39:55 by ayaarab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,31 +14,29 @@
 
 int	ft_atoi(const char *str)
 {
-	size_t				i;
 	int					sign;
 	unsigned long long	result;
 
-	i = 0;
 	sign = 1;
 	result = 0;
-	while (is_delimiter(str[i]))
-		i++;
-	if (str[i] == '-' || str[i] == '+')
+	while (is_delimiter(*str))
+		str++;
+	if (*str == '-' || *str == '+')
 	{
-		if (str[i] == '-')
+		if (*str == '-')
 			sign = -1;
-		i++;
+		str++;
 	}
-	while (str[i] >= '0' && str[i] <= '9')
+	while (*str >= '0' && *str <= '9')
 	{
-		result = (result * 10) + (str[i] - '0');
+		result = (result * 10) + (*str - '0');
 		if ((sign == 1 && result > INT_MAX) || (sign == -1
 				&& result > (unsigned long long)INT_MAX + 1))
 		{
 			write(2, "Error\n", 6);
 			exit(1);
 		}
-		i++;
+		str++;
 	}
-	return (int)(sign * result);
+	return ((int)(sign * result));
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ayoub <ayoub@student.42.fr>                +#+  +:+       +#+        */
+/*   By: ayaarab <ayaarab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 17:30:47 by ayaarab           #+#    #+#             */
-/*   Updated: 2025/03/07 04:04:57 by ayoub            ###   ########.fr       */
+/*   Updated: 2025/03/08 03:20:23 by ayaarab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 # define PUSH_SWAP_H
 
 # include <limits.h>
+# include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
-#include <stdio.h>
 
 typedef struct s_stack
 {
@@ -78,7 +78,6 @@ void				rra(t_stack **stack_a);
 void				rrb(t_stack **stack_b);
 void				rrr(t_stack **stack_a, t_stack **stack_b);
 
-
 // sorting
 int					is_sorted(t_stack **stack_a);
 void				sort_dos(t_stack **stack_a);
@@ -86,10 +85,9 @@ void				sort_trois(t_stack **stack_a);
 void				sort_cinq(t_stack **stack_a, t_stack **stack_b);
 void				print_stack(t_stack *stack);
 
-
-void    sort_big(t_stack **stack_a, t_stack **stack_b);
-int     get_max_pos(t_stack *stack);
-void    assign_indexes(t_stack *stack);
+void				sort_big(t_stack **stack_a, t_stack **stack_b);
+int					get_max_pos(t_stack *stack);
+void				assign_indexes(t_stack *stack);
 
 // best move functions
 
@@ -100,7 +98,8 @@ void    assign_indexes(t_stack *stack);
 // void				sort_big(t_stack **stackA, t_stack **stackB);
 // void				print_cost(t_cost *cost);
 // void				cal_cost(t_stack *stackA, t_stack *stackB, t_cost *cost);
-// void				find_cheapest(t_stack *stackA, t_stack *stackB, t_cost *cheapest);
+// void				find_cheapest(t_stack *stackA, t_stack *stackB,
+// 					t_cost *cheapest);
 // void				apply_moves(t_stack **stackA, t_stack **stackB,
 // 						t_cost *cheapest);
 // void				optimize_rotations(t_stack **stackA, t_stack **stackB,
