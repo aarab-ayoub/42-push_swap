@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   big_sort.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ayaarab <ayaarab@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ayoub <ayoub@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/08 03:18:00 by ayaarab           #+#    #+#             */
-/*   Updated: 2025/03/08 03:22:26 by ayaarab          ###   ########.fr       */
+/*   Updated: 2025/03/08 17:34:44 by ayoub            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ static void	push_to_b(t_stack **a, t_stack **b)
 
 	size = ft_lstsize(*a);
 	min = 0;
-	max = 0.05 * size + 10;
+	max = 0.06 * size + 8;
 	while (*a)
 	{
 		if ((*a)->index >= min && (*a)->index <= max)
