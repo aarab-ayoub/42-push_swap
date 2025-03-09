@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: ayaarab <ayaarab@student.42.fr>            +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/07 17:30:47 by ayaarab           #+#    #+#             */
-/*   Updated: 2025/03/08 03:20:23 by ayaarab          ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
@@ -18,22 +6,21 @@
 # include <stdlib.h>
 # include <unistd.h>
 
+/* ************************************************************************** */
+/*                            Data Structures                                 */
+/* ************************************************************************** */
 typedef struct s_stack
 {
-	int				nbr;
-	int				index;
-	struct s_stack	*next;
-
+    int				nbr;
+    int				index;
+    struct s_stack	*next;
 }					t_stack;
 
-// typedef struct s_cost
-// {
-// 	int				cost_a;
-// 	int				cost_b;
-// 	int				total_cost;
-// 	int				target;
-// }					t_cost;
+/* ************************************************************************** */
+/*                            Function Prototypes                             */
+/* ************************************************************************** */
 
+/* Parsing Functions */
 int					ft_atoi(const char *str);
 int					ft_isdigit(int c);
 void				ft_lstadd_back(t_stack **lst, t_stack *new);
@@ -55,17 +42,16 @@ int					is_duplicate(int *tab, int nbr, int pos);
 int					is_valid_int(const char *str);
 void				free_split(char **split);
 int					count_split_args(char **split);
-
 int					parse_numbers(int argc, char **argv, int *arr);
 int					count_numbers(int argc, char **argv);
 
-// rules
+/* Rules Functions */
 void				push(t_stack **s1, t_stack **s2);
 void				swap(t_stack **stack);
 void				rotate(t_stack **stack);
 void				reverse_rotate(t_stack **stack);
 
-// moves
+/* Move Functions */
 void				sa(t_stack **stack_a);
 void				sb(t_stack **stack_b);
 void				ss(t_stack **stack_a, t_stack **stack_b);
@@ -78,30 +64,31 @@ void				rra(t_stack **stack_a);
 void				rrb(t_stack **stack_b);
 void				rrr(t_stack **stack_a, t_stack **stack_b);
 
-// sorting
+/* Sorting Functions */
 int					is_sorted(t_stack **stack_a);
 void				sort_dos(t_stack **stack_a);
 void				sort_trois(t_stack **stack_a);
 void				sort_cinq(t_stack **stack_a, t_stack **stack_b);
 void				print_stack(t_stack *stack);
-
 void				sort_big(t_stack **stack_a, t_stack **stack_b);
 int					get_max_pos(t_stack *stack);
 void				assign_indexes(t_stack *stack);
 
-// best move functions
+/* Checker functions */
+int check_operations(t_stack **stack_a, t_stack **stack_b);
+int execute_operation(char *line, t_stack **stack_a, t_stack **stack_b);
 
-// void				final_rotate(t_stack **stackA);
-// int					find_target(t_stack *stackA, int value);
-// void				update_indexes(t_stack *stack);
-// void				push_all_to_b(t_stack **stackA, t_stack **stackB);
-// void				sort_big(t_stack **stackA, t_stack **stackB);
-// void				print_cost(t_cost *cost);
-// void				cal_cost(t_stack *stackA, t_stack *stackB, t_cost *cost);
-// void				find_cheapest(t_stack *stackA, t_stack *stackB,
-// 					t_cost *cheapest);
-// void				apply_moves(t_stack **stackA, t_stack **stackB,
-// 						t_cost *cheapest);
-// void				optimize_rotations(t_stack **stackA, t_stack **stackB,
-// 						t_cost *cost);
-#endif
+/* Get Next Line Functions */
+char				*get_next_line(int fd);
+char				*read_and_save(int fd, char *store);
+char				*save(char *store);
+char				*extract_line(char *store);
+size_t				ft_strlen_g(char *s);
+char				*ft_strchr_g(char *s, int c);
+char				*ft_strjoin(char *s1, char *s2);
+
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 2
+# endif
+
+#endif 

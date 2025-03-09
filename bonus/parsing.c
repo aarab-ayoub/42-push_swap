@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ayaarab <ayaarab@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ayoub <ayoub@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 17:31:39 by ayaarab           #+#    #+#             */
-/*   Updated: 2025/03/08 03:35:15 by ayaarab          ###   ########.fr       */
+/*   Updated: 2025/03/09 20:54:55 by ayoub            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,20 +52,20 @@ t_stack	*create_stack(int *arr, int len)
 	return (stack);
 }
 
-static void	handle_sorting(t_stack **stack_a, int len, t_stack **stack_b)
-{
-	if (!is_sorted(stack_a))
-	{
-		if (len < 3)
-			sort_dos(stack_a);
-		else if (len < 4)
-			sort_trois(stack_a);
-		else if (len == 5)
-			sort_cinq(stack_a, stack_b);
-		else
-			sort_big(stack_a, stack_b);
-	}
-}
+// static void	handle_sorting(t_stack **stack_a, int len, t_stack **stack_b)
+// {
+// 	if (!is_sorted(stack_a))
+// 	{
+// 		if (len < 3)
+// 			sort_dos(stack_a);
+// 		else if (len < 4)
+// 			sort_trois(stack_a);
+// 		else if (len == 5)
+// 			sort_cinq(stack_a, stack_b);
+// 		else
+// 			sort_big(stack_a, stack_b);
+// 	}
+// }
 
 static int	init_and_validate(int argc, int *arr_size, char **argv, int **arr)
 {
@@ -83,27 +83,37 @@ static int	init_and_validate(int argc, int *arr_size, char **argv, int **arr)
 	return (0);
 }
 
-int	main(int argc, char **argv)
+int main(int argc, char **argv)
 {
-	int		*arr;
-	int		arr_size;
-	t_stack	*stack_a;
-	t_stack	*stack_b;
-	int		len;
+    t_stack *stack_a;
+    t_stack *stack_b;
+    int arr_size;
+    int *arr;
 
-	stack_b = NULL;
-	if (init_and_validate(argc, &arr_size, argv, &arr) != 0)
-		return (1);
-	stack_a = create_stack(arr, arr_size);
-	len = ft_lstsize(stack_a);
-	if (len == 0)
-	{
-		free(arr);
-		free_stack(stack_a);
-		return (1);
-	}
-	handle_sorting(&stack_a, len, &stack_b);
-	free(arr);
-	free_stack(stack_a);
-	return (0);
+    stack_b = NULL;
+    if (init_and_validate(argc, &arr_size, argv, &arr) != 0)
+        return (1);
+    stack_a = create_stack(arr, arr_size);
+    if (ft_lstsize(stack_a) == 0)
+    {
+        free(arr);
+        free_stack(stack_a);
+        return (1);
+    }
+    if (check_operations(&stack_a, &stack_b) != 0)
+    {
+        free(arr);
+        free_stack(stack_a);
+        free_stack(stack_b);
+        write(2, "Error\n", 6);
+        return (1);
+    }
+    if (is_sorted(&stack_a) && !stack_b)
+        write(1, "OK\n", 3);
+    else
+        write(1, "KO\n", 3);
+    free(arr);
+    free_stack(stack_a);
+    free_stack(stack_b);
+    return (0);
 }
