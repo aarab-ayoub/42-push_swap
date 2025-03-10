@@ -6,7 +6,7 @@
 /*   By: ayaarab <ayaarab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 12:57:49 by ayaarab           #+#    #+#             */
-/*   Updated: 2025/03/03 01:29:48 by ayaarab          ###   ########.fr       */
+/*   Updated: 2025/03/10 03:44:11 by ayaarab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,13 +48,17 @@ void	free_split(char **split)
 {
 	int	i;
 
+	if (!split)
+		return ;
 	i = 0;
 	while (split[i])
 	{
 		free(split[i]);
+		split[i] = NULL;
 		i++;
 	}
 	free(split);
+	split = NULL;
 }
 
 void	print_stack(t_stack *stack)
@@ -72,6 +76,8 @@ int	count_split_args(char **split)
 	int	i;
 	int	count;
 
+	if (!split)
+		return (0);
 	i = 0;
 	count = 0;
 	while (split[i])

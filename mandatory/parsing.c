@@ -6,7 +6,7 @@
 /*   By: ayaarab <ayaarab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 17:31:39 by ayaarab           #+#    #+#             */
-/*   Updated: 2025/03/08 03:35:15 by ayaarab          ###   ########.fr       */
+/*   Updated: 2025/03/10 03:43:58 by ayaarab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,12 +77,16 @@ static int	init_and_validate(int argc, int *arr_size, char **argv, int **arr)
 		return (1);
 	if (!parse_numbers(argc, argv, *arr))
 	{
-		free(arr);
+		free(*arr);
 		return (1);
 	}
 	return (0);
 }
 
+// void ll(void)
+// {
+// 	system("leaks push_swap");
+// }
 int	main(int argc, char **argv)
 {
 	int		*arr;
@@ -92,6 +96,7 @@ int	main(int argc, char **argv)
 	int		len;
 
 	stack_b = NULL;
+	// atexit(ll);
 	if (init_and_validate(argc, &arr_size, argv, &arr) != 0)
 		return (1);
 	stack_a = create_stack(arr, arr_size);
