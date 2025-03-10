@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap.h                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ayaarab <ayaarab@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/03/10 02:38:11 by ayaarab           #+#    #+#             */
+/*   Updated: 2025/03/10 02:38:12 by ayaarab          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
@@ -11,9 +23,9 @@
 /* ************************************************************************** */
 typedef struct s_stack
 {
-    int				nbr;
-    int				index;
-    struct s_stack	*next;
+	int				nbr;
+	int				index;
+	struct s_stack	*next;
 }					t_stack;
 
 /* ************************************************************************** */
@@ -75,8 +87,9 @@ int					get_max_pos(t_stack *stack);
 void				assign_indexes(t_stack *stack);
 
 /* Checker functions */
-int check_operations(t_stack **stack_a, t_stack **stack_b);
-int execute_operation(char *line, t_stack **stack_a, t_stack **stack_b);
+int					check_operations(t_stack **stack_a, t_stack **stack_b);
+int					execute_operation(char *line, t_stack **stack_a,
+						t_stack **stack_b);
 
 /* Get Next Line Functions */
 char				*get_next_line(int fd);
@@ -91,4 +104,4 @@ char				*ft_strjoin(char *s1, char *s2);
 #  define BUFFER_SIZE 2
 # endif
 
-#endif 
+#endif

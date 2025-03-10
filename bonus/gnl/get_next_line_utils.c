@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ayoub <ayoub@student.42.fr>                +#+  +:+       +#+        */
+/*   By: ayaarab <ayaarab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/27 16:31:14 by ayoub             #+#    #+#             */
-/*   Updated: 2025/03/09 20:55:16 by ayoub            ###   ########.fr       */
+/*   Updated: 2025/03/10 02:23:39 by ayaarab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,8 @@ char	*ft_strjoin(char *left_over, char *buffer)
 	}
 	if (!left_over || !buffer)
 		return (NULL);
-	str = malloc((ft_strlen_g(left_over) + ft_strlen_g(buffer) + 1) * sizeof(char));
+	str = malloc((ft_strlen_g(left_over) + ft_strlen_g(buffer) + 1)
+			* sizeof(char));
 	if (str == NULL)
 		return (NULL);
 	i = -1;
