@@ -6,11 +6,11 @@
 /*   By: ayaarab <ayaarab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/15 19:06:07 by ayaarab           #+#    #+#             */
-/*   Updated: 2025/03/08 03:22:03 by ayaarab          ###   ########.fr       */
+/*   Updated: 2025/03/11 00:40:56 by ayaarab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "checker.h"
 
 void	push(t_stack **s1, t_stack **s2)
 {

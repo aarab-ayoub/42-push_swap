@@ -6,11 +6,11 @@
 /*   By: ayaarab <ayaarab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/21 20:56:06 by ayoub             #+#    #+#             */
-/*   Updated: 2025/03/08 03:21:53 by ayaarab          ###   ########.fr       */
+/*   Updated: 2025/03/11 00:40:56 by ayaarab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "checker.h"
 
 int	is_sorted(t_stack **stack_a)
 {

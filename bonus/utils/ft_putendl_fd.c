@@ -6,11 +6,11 @@
 /*   By: ayaarab <ayaarab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 12:26:50 by ayaarab           #+#    #+#             */
-/*   Updated: 2025/02/11 12:26:51 by ayaarab          ###   ########.fr       */
+/*   Updated: 2025/03/11 00:40:56 by ayaarab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "../checker.h"
 
 void	ft_putendl_fd(char *s, int fd)
 {

@@ -6,11 +6,11 @@
 /*   By: ayaarab <ayaarab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 17:31:39 by ayaarab           #+#    #+#             */
-/*   Updated: 2025/03/10 03:05:07 by ayaarab          ###   ########.fr       */
+/*   Updated: 2025/03/11 00:44:23 by ayaarab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "checker.h"
 
 void	free_stack(t_stack *stack)
 {
@@ -62,7 +62,7 @@ static int	init_and_validate(int argc, int *arr_size, char **argv, int **arr)
 		return (1);
 	if (!parse_numbers(argc, argv, *arr))
 	{
-		free(arr);
+		free(*arr);
 		return (1);
 	}
 	return (0);

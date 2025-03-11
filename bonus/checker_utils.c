@@ -6,11 +6,11 @@
 /*   By: ayaarab <ayaarab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/09 20:47:52 by ayoub             #+#    #+#             */
-/*   Updated: 2025/03/10 02:24:39 by ayaarab          ###   ########.fr       */
+/*   Updated: 2025/03/11 00:40:56 by ayaarab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "checker.h"
 
 int	check_operations(t_stack **stack_a, t_stack **stack_b)
 {
