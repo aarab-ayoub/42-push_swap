@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ayaarab <ayaarab@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ayoub <ayoub@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/21 20:56:06 by ayoub             #+#    #+#             */
-/*   Updated: 2025/03/08 03:21:53 by ayaarab          ###   ########.fr       */
+/*   Updated: 2025/03/11 19:54:29 by ayoub            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,56 +62,3 @@ void	assign_indexes(t_stack *stack)
 		curr = curr->next;
 	}
 }
-
-// int find_target(t_stack *stackA, int value) {
-//     t_stack *current = stackA;
-//     int target = INT_MAX;
-//     int closest = INT_MAX;
-
-//     while (current) {
-//         if (current->nbr > value && current->nbr < closest) {
-//             closest = current->nbr;
-//             target = current->nbr;
-//         }
-//         current = current->next;
-//     }
-
-//     if (target == INT_MAX) {
-//         current = stackA;
-//         closest = INT_MAX;
-//         while (current) {
-//             if (current->nbr < closest) {
-//                 closest = current->nbr;
-//                 target = current->nbr;
-//             }
-//             current = current->next;
-//         }
-//     }
-//     return (target);
-// }
-
-// void final_rotate(t_stack **stackA) {
-//     t_stack *current = *stackA;
-//     int min_index = 0;
-//     int min_value = current->nbr;
-//     int index = 0;
-
-//     while (current) {
-//         if (current->nbr < min_value) {
-//             min_value = current->nbr;
-//             min_index = index;
-//         }
-//         current = current->next;
-//         index++;
-//     }
-
-//     if (min_index <= ft_lstsize(*stackA) / 2) {
-//         for (int i = 0; i < min_index; i++) {
-//             ra(stackA);
-//         }
-//     } else {
-//         for (int i = 0; i < ft_lstsize(*stackA) - min_index; i++) {
-//             rra(stackA);
-//         }
-//     }
-// }
