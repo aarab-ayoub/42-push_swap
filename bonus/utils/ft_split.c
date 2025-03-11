@@ -6,104 +6,101 @@
 /*   By: ayaarab <ayaarab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 12:26:25 by ayaarab           #+#    #+#             */
-/*   Updated: 2025/03/11 00:40:56 by ayaarab          ###   ########.fr       */
+/*   Updated: 2025/03/11 03:43:17 by ayaarab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../checker.h"
 
-static int	count_word(char *str)
+static int	count_word(char *str, char c)
 {
-	int	i;
 	int	in_word;
 	int	count;
+	int	i;
 
-	i = 0;
 	in_word = 0;
 	count = 0;
+	i = 0;
 	while (str[i])
 	{
-		if (is_delimiter(str[i]))
+		if (str[i] == c)
 			in_word = 0;
 		else if (!in_word)
 		{
-			count++;
 			in_word = 1;
+			count++;
 		}
 		i++;
 	}
 	return (count);
 }
 
-static char	*copy_word(char *src, int len)
+static char	*copy_word(char *str, int len)
 {
 	int		i;
-	char	*word;
+	char	*dest;
 
 	i = 0;
-	word = (char *)malloc((len + 1) * sizeof(char));
-	if (!word)
+	dest = malloc(len + 1);
+	if (!dest)
 		return (NULL);
 	while (i < len)
 	{
-		word[i] = src[i];
+		dest[i] = str[i];
 		i++;
 	}
-	word[i] = '\0';
-	return (word);
+	dest[i] = '\0';
+	return (dest);
 }
 
-static int	process_word(char *str, char **alloc_str, int *i, int p)
+static void	free_alloc(char **alloc, int j)
 {
-	int	j;
-
-	while (is_delimiter(str[*i]))
-		(*i)++;
-	if (str[*i] == '\0')
-		return (0);
-	j = *i;
-	while (str[*i] && !is_delimiter(str[*i]))
-		(*i)++;
-	alloc_str[p] = copy_word(&str[j], *i - j);
-	if (!alloc_str[p])
+	while (j >= 0)
 	{
-		while (p >= 0)
-			free(alloc_str[p--]);
-		free(alloc_str);
-		return (0);
+		free(alloc[j]);
+		j--;
 	}
-	return (1);
+	free(alloc);
 }
 
-static char	**allocate_words(char *str, int word_count)
+static int	find_next_word(char const *str, char c, int *start)
 {
-	int		i;
-	int		p;
-	char	**alloc_str;
+	size_t	i;
 
-	alloc_str = (char **)malloc((word_count + 1) * sizeof(char *));
-	if (!alloc_str)
+	i = *start;
+	while (str[i] && str[i] == c)
+		i++;
+	*start = i;
+	while (str[i] && c != str[i])
+		i++;
+	return (i - *start);
+}
+
+char	**ft_split(char const *s, char c)
+{
+	int		j;
+	int		len;
+	int		start;
+	char	**alloc;
+
+	j = 0;
+	start = 0;
+	if (!s)
 		return (NULL);
-	i = 0;
-	p = 0;
-	while (str[i])
+	alloc = malloc((count_word((char *)s, c) + 1) * sizeof(char *));
+	if (!alloc)
+		return (NULL);
+	while (s[start])
 	{
-		if (!process_word(str, alloc_str, &i, p))
-			return (NULL);
-		p++;
+		len = find_next_word(s, c, &start);
+		if (len > 0)
+		{
+			alloc[j++] = copy_word((char *)&s[start], len);
+			if (!alloc[j - 1])
+				return (free_alloc(alloc, j - 1), NULL);
+			start += len;
+		}
 	}
-	alloc_str[p] = NULL;
-	return (alloc_str);
+	return (alloc[j] = NULL, alloc);
 }
 
-char	**ft_split(char *str)
-{
-	int		word_count;
-	char	**alloc_str;
-
-	if (!str)
-		return (NULL);
-	word_count = count_word(str);
-	alloc_str = allocate_words(str, word_count);
-	return (alloc_str);
-}

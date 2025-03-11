@@ -45,7 +45,7 @@ void				ft_putchar_fd(char c, int fd);
 void				ft_putendl_fd(char *s, int fd);
 void				ft_putstr_fd(char *s, int fd);
 void				ft_putnbr_fd(int n, int fd);
-char				**ft_split(char *str);
+char				**ft_split(char const *str, char c);
 int					ft_strcmp(const char *s1, const char *s2);
 int					ft_strlen(const char *str);
 int					is_delimiter(char c);

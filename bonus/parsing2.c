@@ -6,7 +6,7 @@
 /*   By: ayaarab <ayaarab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/15 19:05:52 by ayaarab           #+#    #+#             */
-/*   Updated: 2025/03/11 00:40:56 by ayaarab          ###   ########.fr       */
+/*   Updated: 2025/03/11 03:42:52 by ayaarab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ static int	process_string_arg(char **split_args, int *arr, int *index)
 	int	j;
 
 	j = 0;
-	while (split_args[j])
+	while (split_args && split_args[j])
 	{
 		if (!is_valid_int(split_args[j]) || is_duplicate(arr,
 				ft_atoi(split_args[j]), *index))
@@ -54,7 +54,7 @@ int	count_numbers(int argc, char **argv)
 	{
 		if (ft_strchr(argv[i], ' '))
 		{
-			split_args = ft_split(argv[i]);
+					split_args = ft_split(argv[i], ' ');
 			count += count_split_args(split_args);
 			free_split(split_args);
 		}
@@ -77,7 +77,7 @@ int	parse_numbers(int argc, char **argv, int *arr)
 	{
 		if (ft_strchr(argv[i], ' '))
 		{
-			split_args = ft_split(argv[i]);
+			split_args = ft_split(argv[i], ' ');
 			if (!process_string_arg(split_args, arr, &k))
 			{
 				free_split(split_args);
