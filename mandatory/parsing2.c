@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing2.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ayaarab <ayaarab@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ayoub <ayoub@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/15 19:05:52 by ayaarab           #+#    #+#             */
-/*   Updated: 2025/03/11 03:31:06 by ayaarab          ###   ########.fr       */
+/*   Updated: 2025/03/11 19:49:54 by ayoub            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,12 @@ int	parse_numbers(int argc, char **argv, int *arr)
 		if (ft_strchr(argv[i], ' '))
 		{
 			split_args = ft_split(argv[i], ' ');
+			if (!split_args || !split_args[0])
+			{
+				free_split(split_args);
+				write(2, "Error\n", 6);
+				return (0);
+			}
 			if (!process_string_arg(split_args, arr, &k))
 			{
 				free_split(split_args);
