@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing2.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ayoub <ayoub@student.42.fr>                +#+  +:+       +#+        */
+/*   By: ayaarab <ayaarab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/15 19:05:52 by ayaarab           #+#    #+#             */
-/*   Updated: 2025/03/11 19:49:46 by ayoub            ###   ########.fr       */
+/*   Updated: 2025/03/12 00:15:07 by ayaarab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ int	count_numbers(int argc, char **argv)
 	{
 		if (ft_strchr(argv[i], ' '))
 		{
-					split_args = ft_split(argv[i], ' ');
+			split_args = ft_split(argv[i], ' ');
 			count += count_split_args(split_args);
 			free_split(split_args);
 		}
@@ -65,11 +65,30 @@ int	count_numbers(int argc, char **argv)
 	return (count);
 }
 
+static int	process_split_args(char *arg, int *arr, int *k)
+{
+	char	**split_args;
+
+	split_args = ft_split(arg, ' ');
+	if (!split_args || !split_args[0])
+	{
+		free_split(split_args);
+		write(2, "Error\n", 6);
+		return (0);
+	}
+	if (!process_string_arg(split_args, arr, k))
+	{
+		free_split(split_args);
+		return (0);
+	}
+	free_split(split_args);
+	return (1);
+}
+
 int	parse_numbers(int argc, char **argv, int *arr)
 {
-	int		i;
-	int		k;
-	char	**split_args;
+	int	i;
+	int	k;
 
 	i = 1;
 	k = 0;
@@ -77,23 +96,11 @@ int	parse_numbers(int argc, char **argv, int *arr)
 	{
 		if (ft_strchr(argv[i], ' '))
 		{
-			split_args = ft_split(argv[i], ' ');
-			if (!split_args || !split_args[0])
-			{
-				free_split(split_args);
-				write(2, "Error\n", 6);
+			if (!process_split_args(argv[i], arr, &k))
 				return (0);
-			}
-			if (!process_string_arg(split_args, arr, &k))
-			{
-				free_split(split_args);
-				return (0);
-			}
-			free_split(split_args);
 		}
-		else
-			if (!process_single_arg(argv[i], arr, k++))
-				return (0);
+		else if (!process_single_arg(argv[i], arr, k++))
+			return (0);
 		i++;
 	}
 	return (1);

@@ -6,7 +6,7 @@
 /*   By: ayaarab <ayaarab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 12:26:25 by ayaarab           #+#    #+#             */
-/*   Updated: 2025/03/11 03:43:17 by ayaarab          ###   ########.fr       */
+/*   Updated: 2025/03/12 00:11:49 by ayaarab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,4 +103,3 @@ char	**ft_split(char const *s, char c)
 	}
 	return (alloc[j] = NULL, alloc);
 }
-
